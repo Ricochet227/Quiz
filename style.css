@@ -48,9 +48,9 @@ button{
     padding: 1.3rem;
 }
 button:hover{
-    background-image:linear-gradient(greenyellow, green);
+    background-image:linear-gradient(aqua, rgba(0, 81, 255, 0.466));
 }
 button:focus{
     outline: none;
-    background-image:linear-gradient(aqua, rgba(0, 81, 255, 0.466));
+    background-image:linear-gradient(greenyellow, green);
 }
