@@ -1,3 +1,5 @@
+
+ 
 const quizData = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -101,3 +103,28 @@ submitBtn.addEventListener('click', () => {
         }
     }
 )
+var timeEl = document.querySelector(".time");
+var mainEl = document.getElementById("main");
+
+var secondsLeft = 500;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+
+    if(secondsLeft === 0) {
+
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
+// Function to create and append colorsplosion image
+function sendMessage() {
+    alert('Times Up! Game over!')
+}
+
+setTime();
