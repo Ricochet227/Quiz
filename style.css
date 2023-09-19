@@ -1,7 +1,19 @@
 *{
     box-sizing: border-box;
 }
-
+.title{
+    display: none;
+}
+.startpg{
+    margin: 5rem;
+}
+.startbtn{
+    margin: 45px;
+    margin-left: -10px;
+}
+.welcome{
+    margin-top: -40px;
+}
 .time{
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.678);
@@ -25,6 +37,7 @@ body{
     margin: 0;
 }
 .quiz-container{
+ 
     background-color: darkgray;
     border-radius: 15px;
     box-shadow: 0 0 10px 2px black;
@@ -32,6 +45,7 @@ body{
     overflow: hidden;
 }
 .quiz-header{
+    display: none;
     padding: 2rem;
 }
 h2{

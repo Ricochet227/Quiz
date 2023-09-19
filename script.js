@@ -1,5 +1,14 @@
-
- 
+const quiz= document.getElementById('quiz')
+const quizHeader= document.querySelector('.quiz-header')
+const answerEls = document.querySelectorAll('.answer')
+const questionEl= document.getElementById('question')
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+const submitBtn = document.getElementById('submit')
+const startBtn= document.getElementById('start')
+const startpg= document.getElementById('startpg')
 const quizData = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -44,19 +53,17 @@ const quizData = [
     
 ];
 
-const quiz= document.getElementById('quiz')
-const answerEls = document.querySelectorAll('.answer')
-const questionEl= document.getElementById('question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
-const submitBtn = document.getElementById('submit')
+startBtn.addEventListener("click", () =>{
+    startpg.style.display= "none";
+    quizHeader.style.display= "block";
+    timeEl.textContent = secondsLeft;
+    loadQuiz();
+    setTime();
+})
 
 let currentQuiz = 0
 let score = 0
 
-loadQuiz()
 
 function loadQuiz(){
     deselectAnswers()
@@ -86,7 +93,8 @@ submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if(answer) {
         if(answer === quizData[currentQuiz].correct) {
-            score++
+        }else{
+            secondsLeft=secondsLeft-10
         }
 
         currentQuiz++
@@ -95,7 +103,7 @@ submitBtn.addEventListener('click', () => {
             loadQuiz()
         }else{
             quiz.innerHTML =`
-            <h2>You answered ${score}/${quizData.length} questions correctly<h2>
+            <h2>You scored ${secondsLeft} points!<h2>
             
             <button onclick="location.reload()">Reload</button>
             `
@@ -106,25 +114,22 @@ submitBtn.addEventListener('click', () => {
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 
-var secondsLeft = 500;
+var secondsLeft = 12;
 
 function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
 
       clearInterval(timerInterval);
-      sendMessage();
+        quiz.innerHTML =`
+        <h2>You scored ${secondsLeft} points!<h2>
+        
+        <button onclick="location.reload()">Reload</button>
+        `
     }
 
   }, 1000);
 }
-
-// Function to create and append colorsplosion image
-function sendMessage() {
-    alert('Times Up! Game over!')
-}
-
-setTime();
