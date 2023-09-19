@@ -114,7 +114,7 @@ submitBtn.addEventListener('click', () => {
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 
-var secondsLeft = 12;
+var secondsLeft = 120;
 
 function setTime() {
   var timerInterval = setInterval(function() {
